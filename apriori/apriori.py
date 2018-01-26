@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-dataset = pd.read_csv('Market_Basket_Optimisation.csv', header = None)
+dataset = pd.read_csv('your_data_set', header = None)
 
 transactions = []
 for i in range (0, 7501):
