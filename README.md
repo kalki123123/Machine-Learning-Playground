@@ -8,3 +8,4 @@ currently available implementations
 2.  Apriori
 3. simple linear regression
 4. polynomial regression 
+5. Decision tree regression
