@@ -9,3 +9,4 @@ currently available implementations
 3. simple linear regression
 4. polynomial regression 
 5. Decision tree regression
+6. Random forest regression 
