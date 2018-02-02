@@ -6,3 +6,5 @@ I will be adding machine learning and deep learning algorithms one by one. Follo
 currently available implementations 
 1.  Eclat
 2.  Apriori
+3. simple linear regression
+4. polynomial regression 
