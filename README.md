@@ -11,3 +11,4 @@ currently available implementations
 5. Decision tree regression
 6. Random forest regression 
 7. Logistic regression
+8. KNN classification 
