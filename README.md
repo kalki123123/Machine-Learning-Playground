@@ -12,3 +12,5 @@ currently available implementations
 6. Random forest regression 
 7. Logistic regression
 8. KNN classification 
+9. SVM classiffier
+10. .........
