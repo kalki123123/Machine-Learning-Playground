@@ -13,4 +13,5 @@ currently available implementations
 7. Logistic regression
 8. KNN classification 
 9. SVM classiffier
-10. .........
+10. Kernel SVM classifier 
+11. ...........
