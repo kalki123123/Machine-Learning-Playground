@@ -14,4 +14,5 @@ currently available implementations
 8. KNN classification 
 9. SVM classiffier
 10. Kernel SVM classifier 
-11. ...........
+11. Naive bayes classifier 
+12. ...............
