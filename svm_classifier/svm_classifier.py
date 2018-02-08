@@ -35,4 +35,4 @@ y_predict = svmClassifier.predict(X_test)
 
 # confusion matrix 
 from sklearn.metrics import confusion_matrix
-cm = confusion_matrix(y_predict, Y_test)
+cm = confusion_matrix( Y_test, y_predict)
