@@ -15,4 +15,5 @@ currently available implementations
 9. SVM classiffier
 10. Kernel SVM classifier 
 11. Naive bayes classifier 
-12. ...............
+12. Decision Tree classification 
+13. .........
