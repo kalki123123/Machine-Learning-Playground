@@ -17,4 +17,5 @@ currently available implementations
 11. Naive bayes classifier 
 12. Decision Tree classification 
 13. Random Forest Classification
-14. ..............
+14. Natural language processing - Basic implementation of Bag of Words
+15. .................
