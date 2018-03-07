@@ -28,9 +28,11 @@ X_test = sc.transform(X_test)
 # Dimentionality Reduction - PCA 
 # First set n_components to None, check  pca.explained_variance_ratio_ to decide how many variables you want
 # Then, set the same number to n_components.
+
+#PCA doesnot depend on dependent varialbe - hence the name - unsupervised learning 
 from sklearn.decomposition import PCA
 pca = PCA(n_components = 2)
-X_train = pca.fit_transform(X_train, y_train)
+X_train = pca.fit_transform(X_train)
 X_test = pca.transform(X_test)
 explained_variance = pca.explained_variance_ratio_
 
