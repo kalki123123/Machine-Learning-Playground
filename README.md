@@ -18,4 +18,6 @@ currently available implementations
 12. Decision Tree classification 
 13. Random Forest Classification
 14. Natural language processing - Basic implementation of Bag of Words
-15. .................
+15. Principle component analysis
+16. artificial neural network - example_01
+17. .................
