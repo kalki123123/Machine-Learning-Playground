@@ -2,6 +2,7 @@
 Most of machine learning algorithms will be available here. (Both in Python and R)
 
 I will be adding machine learning and deep learning algorithms one by one. Follow me and keep yourself updated !!
+Most of these algorithms were part of machine learning a-z course on udemy. I am using github as a playing field. 
 
 currently available implementations 
 1. Eclat
