@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<title>Statistics</title>
+  
+</head>
+
+    <body>
+        <h1 style="text-align:center;">Statistics</h1>
+        <div style="width:30%; height:40%; float:left;">
+            <canvas id="bar-chart" ></canvas>                                              <!-- placeholder for graph -->
+        </div>
+
+        <div ng-app="myApp" ng-controller="myCtrl">                                         <!-- style to adjust labels -->
+            <style>
+                label {
+                  display: inline-block;
+                  width: 140px;
+                  text-align: right;
+                  padding-right: 30px;
+                }​
+            </style>
+            <!-- Following division show name : value of all persons  -->
+
+            <div class="block" style="padding-top:10px;">
+                <label> Jack </label>
+                <input name="widget.value1" ng-model="widget.value1"/>
+            </div>
+
+            <div class="block" style="padding-top:10px;">
+                <label>Krish</label>
+                <input type="text" name="widget.value2" ng-model="widget.value2"/>
+            </div>
+
+            <div class="block" style="padding-top:10px;">
+                <label>Mia</label>
+                <input type="text"name="widget.value3" ng-model="widget.value3" />
+            </div>
+
+             <div class="block" style="padding-top:10px;">
+                <label>Anna </label>
+                <input type="text" name="widget.value4" ng-model="widget.value4"/>
+             </div>
+
+            <div class="block" style="padding-top:10px;">
+                <label>Sophie</label>
+                <input type="text" name="widget.value5" ng-model="widget.value5" />
+            </div>
+
+            <div class="block" style="padding-top:20px; ">
+                <label></label>
+                <button ng-click="changeData()"> submit changes</button>
+                <!-- Call function changeData() on button click
+                 It does two things - update DB , update Graph-->
+            </div>
+
+            <!-- Main script to implement the logic -
+
+            changeData() - called on button click.
+            newChart() - called whenever new chart is to be created. Old one is destroyed before creating new one.
+            -->
+
+            <script>
+                var names = ["Jack", "Krish", "Mia", "Anna", "Sophie"];
+                var app = angular.module('myApp', []);
+                var array = [];
+                var oldChart;
+                angular.module('myApp', [])
+                .controller('myCtrl', function($scope, $http) {
+                     $http.get('/get').then(function(response) {
+                          $scope.customerData = response.data;
+                          $scope.widget = {value1: $scope.customerData[0].value, value2 : $scope.customerData[1].value ,
+                                            value3 : $scope.customerData[2].value,
+                                            value4 : $scope.customerData[3].value, value5 : $scope.customerData[4].value};
+                          var Data = [$scope.customerData[0].value, $scope.customerData[1].value, $scope.customerData[2].value, $scope.customerData[3].value, $scope.customerData[4].value]
+                           oldChart=newChart(Data);
+                        });
+
+                    $scope.changeData = function() {
+
+                        array = [
+                            {name : names[0], value : $scope.widget.value1},
+                            {name : names[1], value : $scope.widget.value2},
+                            {name : names[2], value : $scope.widget.value3},
+                            {name : names[3], value : $scope.widget.value4},
+                            {name : names[4], value : $scope.widget.value5}
+                        ];
+                        var data=[$scope.widget.value1, $scope.widget.value2, $scope.widget.value3, $scope.widget.value4, $scope.widget.value5];
+                                oldChart.destroy();
+                                newChart(data);
+                        $http.post("/update", array).success(function(array, status) {
+
+                        });
+
+                        $http.get('/get').then(function(response) {
+                          $scope.customerData = response.data;
+                          $scope.abc= $scope.customerData[1].value;
+                          $scope.widget = {value1: $scope.customerData[0].value, value2 : $scope.customerData[1].value ,
+                                            value3 : $scope.customerData[2].value,
+                                            value4 : $scope.customerData[3].value, value5 : $scope.customerData[4].value};
+                        });
+                    };
+
+                });
+
+                function newChart(dat){
+                    var ctx=document.getElementById("bar-chart");
+                   oldChart= new Chart(ctx, {
+                          type: 'pie',
+                          data: {
+                            labels: names,
+                            datasets: [
+                              {
+                                label: "Expenditure (Euro)",
+                                backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                                data: dat,
+                                isFixedWidth:false,
+                                barWidth:20,
+                                barDatasetSpacing:30,
+                                barValueSpacing:30
+                              }
+                            ]
+                          },
+                          options: {
+                            legend: { display: false },
+                            title: {
+                              display: true,
+                              text: 'Predicted expenditure per day (Euro) in 2017'
+                            }
+                           }
+                    });
+                    return oldChart;
+                }
+
+
+            </script>
+
+
+        </div>
+
+    </body>
+</html> 

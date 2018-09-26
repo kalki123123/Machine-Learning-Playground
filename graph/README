@@ -1,0 +1,14 @@
+Please run the following steps : 
+  1.install node.js, 
+  install mysql and create user - admin and password - password (Or change server.js file accordingly)
+  2.node server.js                    --- server initial setup
+  3.npm install ejs --save
+  4 npm install express --save
+  5.npm install body-parser --save
+  (Install any other dependancy if needed be )
+  6.node app.js                       --- webserver for this app 
+  7.point your browser to http://127.0.0.1:8080/
+  8.Be online! Chartjs doesnot run in offline mode as its pointed to their repo. 
+                                You can also create a local repo in case you need offline access
+  
+  

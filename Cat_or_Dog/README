@@ -1,0 +1,6 @@
+Task is to predict whether given image is cat or dog. Libraries mentioned in requirements.txt should be installed before 
+using this code.
+
+Methadology :
+I have used  Conv2D, MaxPooling2D, Flatten and Dense layers to create a typical CNN model. Train this model on several images 
+over several epochs. 
