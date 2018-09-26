@@ -1,0 +1,26 @@
+{
+  "name": "triparound",
+  "version": "1.0.0",
+  "description": "Task for Hiwi",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.6",
+    "mongodb": "^2.2.29"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Prashant Bhat",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalki123123/graph.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kalki123123/graph/issues"
+  },
+  "homepage": "https://github.com/kalki123123/graph#readme"
+}

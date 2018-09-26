@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<!-- This file is for desktops. It contains a full fledged google map-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<title>Maps</title>
+  
+</head>
+
+    <body>
+    <!-- title -->
+        <h1 style="text-align:center;">MapView</h1>
+
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <!-- This division holds your google map  -->
+            <div id="googleMap" name="widget1" ng-model="widget1" style="margin: 0 auto; width:80vw;height:60vh;"></div>
+
+            <!-- In the following script I first initialize the map with known location . Then,
+             Actual data is retrieved from mongodb, a marker is placed in that position-->
+
+            <!-- The simple trick i have used for mobile traffic detection is by detecting screen size.
+            Normally mobile have screen  size less than 414 x 736(iPhone 7)
+             By setting width check below this value, simple redirection can be done.
+
+             In this example to showcase what I have done, I will set it to <=2000 to include
+             my desktop as a smaller screen and redirect it to mobile site.
+             Please change it accordingly when you  deploy it on actual machine-->
+            <script>
+                var map;
+                function initMap(lattidtude, longitude) {
+                    var uluru = {lat:lattidtude , lng: longitude};
+                    map = new google.maps.Map(document.getElementById('googleMap'), {
+                      zoom: 13,
+                      center: uluru
+                    });
+
+                 }
+
+                var LocationData ={};
+                angular.module('myApp', [])
+                .controller('myCtrl', function($scope, $http) {
+                     $http.get('/get').then(function(response) {
+                     if (screen.width <= 600) {
+                    window.location = "http://127.0.0.1:8080/m.trip";
+                    }
+                            LocationData= response.data;
+                            $scope.widget=LocationData.lat;
+                            initMap(LocationData.lat, LocationData.lon);
+                            loc = {lat: LocationData.lat, lng: LocationData.lon};
+                            var marker = new google.maps.Marker({
+                              position: loc,
+                              map: map
+                            });
+                        });
+                });
+
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9U5I6A-S9LVU02ca_lNH_Y7N1WdDkaPQ&callback=initMap"></script>
+
+        </div>
+
+    </body>
+</html> 
