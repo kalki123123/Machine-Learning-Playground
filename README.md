@@ -22,3 +22,13 @@ currently available implementations
 15. Principle component analysis
 16. artificial neural network - example_01
 17. .................
+
+Solving one machine learning problem at a time !
+1. Wine problem - http://archive.ics.uci.edu/ml/datasets/Wine+Quality
+  I have considered white wine dataset for classification task. Please find more details in the above link. 
+2. Cat or Dog - Image recognistion using Deep Convolutional Neural Network.
+  I have used Keras with tensorflow backend to train CNN model. 
+3.  Codekicker (aaron.ai task) - Text classification / clustering task 
+  I have used Random Forest Classifier / K-Means clustering 
+4. Sick or Healthy (Luminovo challenge) - Artificial neural network iplmentation of classification
+  Task is to classify whether person is healthy or sick. Deep learning implementaion. 
